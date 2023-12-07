@@ -3,7 +3,60 @@
         {
             "messageId":"00001",
             "clientId":"100",
-            "message":"Hello world",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        },
+        {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations, you have won R 150!",
+            "dateTime": "20-02-2005"
+        },
+        {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        },
+        {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
+            "dateTime": "20-02-2005"
+        }, {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Congratulations on reaching your savings gaol!",
             "dateTime": "20-02-2005"
         }
     ]

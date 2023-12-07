@@ -18,6 +18,7 @@ class AppColors {
 }
 
 class AppFontSizes {
+  static const double textSizeXSmall = 12.0;
   static const double textSizeSmall = 16.0;
   static const double textSizeMedium = 18.0;
   static const double textSizeLarge = 20.0;

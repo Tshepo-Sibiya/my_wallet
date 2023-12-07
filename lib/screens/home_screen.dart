@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_wallet/models/transaction_model.dart';
+import 'package:my_wallet/screens/inbox_screen.dart';
 
 import '../constants/shared_constants.dart';
 import '../utils/formaters.dart';
@@ -114,39 +115,64 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    IconButton(
-                      color: AppColors.purple,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Login()),
-                        );
-                      },
-                      icon: const Icon(Icons.person_outlined),
-                    ),
-                    Text('Profile')
-                  ],
+                // Column(
+                //   children: [
+                //     IconButton(
+                //       color: AppColors.purple,
+                //       onPressed: () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(builder: (context) => Login()),
+                //         );
+                //       },
+                //       icon: const Icon(Icons.person_outlined),
+                //     ),
+                //     Text('Profile')
+                //   ],
+                // ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.person_outline,
+                        color: AppColors.purple,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text('Profile')
+                    ],
+                  ),
                 ),
                 const SizedBox(
-                  width: 30,
+                  width: 40,
                 ),
-                Column(
-                  children: [
-                    IconButton(
-                      color: AppColors.purple,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Login()),
-                        );
-                      },
-                      icon: const Icon(Icons.notifications_outlined),
-                    ),
-                    Text('Inbox')
-                  ],
-                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Inbox()),
+                    );
+                  },
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.notifications_outlined,
+                        color: AppColors.purple,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text('Inbox')
+                    ],
+                  ),
+                )
               ],
             ),
             const SizedBox(

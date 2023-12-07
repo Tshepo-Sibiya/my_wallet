@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_wallet/screens/home_screen.dart';
 
 import '../constants/shared_constants.dart';
 import '../shared_widgets/textfield.dart';
@@ -50,7 +51,7 @@ class _LoginState extends State<Login> {
               height: 20,
             ),
             const TextFieldWithIcon(
-              hintText: 'Password',
+              hintText: 'Passworddd',
               icon: Icons.key,
               sufixIcon: FontAwesomeIcons.eyeSlash,
             ),
@@ -72,7 +73,13 @@ class _LoginState extends State<Login> {
             ),
             backgroundColor: MaterialStateProperty.all(AppColors.darkPurple),
           ),
-          onPressed: () {},
+          onPressed: () {
+            // Navigate to ScreenB when the button is pressed
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Home()),
+            );
+          },
           child: const Text('Login'),
         ),
       ),

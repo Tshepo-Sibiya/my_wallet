@@ -9,13 +9,12 @@ class AppSizes {
 }
 
 class AppColors {
-  static const Color darkPurple = Color(0xFF6E34B8);
+  static const Color darkPurple = Color(0xFF6A0DAD);
 
   static const Color purple = Color(0xFF9038FF);
   static const Color gray6 = Color(0xFFF2F2F2);
 
-
-   static const Color gray3 = Color(0xFF828282);
+  static const Color gray3 = Color(0xFF828282);
 }
 
 class AppFontSizes {

@@ -1,0 +1,10 @@
+{
+    "message": [
+        {
+            "messageId":"00001",
+            "clientId":"100",
+            "message":"Hello world",
+            "dateTime": "20-02-2005"
+        }
+    ]
+}

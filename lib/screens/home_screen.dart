@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:my_wallet/models/transaction_model.dart';
 import 'package:my_wallet/screens/inbox_screen.dart';
@@ -5,24 +7,28 @@ import 'package:my_wallet/screens/profile_screen.dart';
 
 import '../constants/shared_constants.dart';
 import '../utils/formaters.dart';
-import 'card_details_screen.dart';
 import 'dart:convert';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import 'card_details_screen.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
   List<Transaction> transactions = [];
+  Random random = Random();
+  double randomDouble = 0;
 
   @override
   void initState() {
     super.initState();
     loadJsonData();
+    randomDouble = random.nextDouble() * (1000 - 50) + 50;
   }
 
   Future<void> loadJsonData() async {
@@ -97,19 +103,86 @@ class _HomeState extends State<Home> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CardDetails()),
+                  MaterialPageRoute(builder: (context) => const CardDetails()),
                 );
               },
-              child: Center(
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    'assets/images/balance_card.png',
-                    fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  SvgPicture.asset(
+                    'assets/svg/balance.svg',
+                    width: 200.0,
+                    height: 200.0,
+                    color: AppColors.darkPurple,
                   ),
-                ),
+                  Positioned(
+                    top: 20.0,
+                    left: 20.0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Balance',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                formatCurrency(randomDouble),
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 60,
+                              ),
+                              const Text(
+                                'Linked to card',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                ),
+                              ),
+                            ],
+                          ),
+                          // const Icon(
+                          //   color: Colors.white,
+                          //   Icons.arrow_forward_ios,
+                          // ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
+
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => CardDetails()),
+            //     );
+            //   },
+            //   child: Center(
+            //     child: SizedBox(
+            //       width: MediaQuery.of(context).size.width,
+            //       child: Image.asset(
+            //         'assets/images/balance_card.png',
+            //         fit: BoxFit.cover,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(
               height: 20,
             ),

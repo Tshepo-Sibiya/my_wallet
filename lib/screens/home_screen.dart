@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_wallet/models/transaction_model.dart';
 import 'package:my_wallet/screens/inbox_screen.dart';
 import 'package:my_wallet/screens/profile_screen.dart';
@@ -7,13 +6,13 @@ import 'package:my_wallet/screens/profile_screen.dart';
 import '../constants/shared_constants.dart';
 import '../utils/formaters.dart';
 import 'card_details_screen.dart';
-import 'login_screen.dart';
 import 'dart:convert';
 
 class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -31,7 +30,6 @@ class _HomeState extends State<Home> {
         .loadString('assets/mock_data/transactions.json');
     Map<String, dynamic> data = jsonDecode(jsonString);
     List<dynamic> jsonList = data['transaction'];
-    print(jsonList);
     List<Transaction> tempList =
         jsonList.map((item) => Transaction.fromJson(item)).toList();
 
@@ -57,7 +55,7 @@ class _HomeState extends State<Home> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Wallet',
                       style: TextStyle(
@@ -66,7 +64,7 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 10,
                     ),
                     Text(
@@ -78,7 +76,7 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Profile()),
+                      MaterialPageRoute(builder: (context) => const Profile()),
                     );
                   },
                   child: ClipOval(
@@ -103,7 +101,7 @@ class _HomeState extends State<Home> {
                 );
               },
               child: Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     'assets/images/balance_card.png',
@@ -127,12 +125,12 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Column(
-                    children: [
-                      const Icon(
+                    children: const [
+                      Icon(
                         Icons.person_outline,
                         color: AppColors.purple,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Text('Profile')
@@ -150,12 +148,12 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: Column(
-                    children: [
-                      const Icon(
+                    children: const [
+                      Icon(
                         Icons.notifications_outlined,
                         color: AppColors.purple,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Text('Inbox')
@@ -167,7 +165,7 @@ class _HomeState extends State<Home> {
             const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               'Recent Transactions',
               style: TextStyle(
                 fontWeight: FontWeight.bold,

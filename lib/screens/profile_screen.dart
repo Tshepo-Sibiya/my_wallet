@@ -43,7 +43,7 @@ class _ProfileState extends State<Profile> {
                       color: AppColors.gray6,
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back_ios_new,
                     ),
                   ),
@@ -53,7 +53,7 @@ class _ProfileState extends State<Profile> {
             const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Profile',
               style: TextStyle(
                 fontSize: AppFontSizes.textSizeMedium,
@@ -74,12 +74,13 @@ class _ProfileState extends State<Profile> {
             const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Mr Mom Money',
               style: TextStyle(
-                  fontSize: AppFontSizes.textSizeMedium,
-                  color: AppColors.darkPurple,
-                  fontWeight: FontWeight.bold),
+                fontSize: AppFontSizes.textSizeMedium,
+                color: AppColors.darkPurple,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(
               height: 150,
@@ -89,14 +90,15 @@ class _ProfileState extends State<Profile> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Login()),
+                    MaterialPageRoute(builder: (context) => const Login()),
                   );
                 },
                 child: Column(
                   children: [
                     ClipOval(
                       child: Container(
-                        padding: EdgeInsets.all(8.0),
+                        padding:
+                            const EdgeInsets.all(AppFontSizes.textSizeXXSmall),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(
@@ -104,8 +106,8 @@ class _ProfileState extends State<Profile> {
                             width: 2.0,
                           ),
                         ),
-                        child: ClipOval(
-                          child: const Icon(
+                        child: const ClipOval(
+                          child: Icon(
                             Icons.key_outlined,
                             color: AppColors.purple,
                             size: 24.0,
@@ -116,12 +118,13 @@ class _ProfileState extends State<Profile> {
                     const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Log Out',
                       style: TextStyle(
-                          fontSize: AppFontSizes.textSizeMedium,
-                          color: AppColors.purple,
-                          fontWeight: FontWeight.bold),
+                        fontSize: AppFontSizes.textSizeMedium,
+                        color: AppColors.purple,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -131,24 +134,25 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       bottomNavigationBar: Padding(
-          padding: EdgeInsets.all(50),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.of(context).pop();
-            },
-            child: Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                color: Colors.red,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(
-                Icons.close,
-                color: Colors.white,
-                size: 16.0,
-              ),
+        padding: const EdgeInsets.all(50),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Container(
+            padding: const EdgeInsets.all(AppFontSizes.textSizeXXSmall),
+            decoration: const BoxDecoration(
+              color: Colors.red,
+              shape: BoxShape.circle,
             ),
-          )),
+            child: const Icon(
+              Icons.close,
+              color: Colors.white,
+              size: 16.0,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

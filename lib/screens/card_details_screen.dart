@@ -1,11 +1,11 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:my_wallet/models/message_model.dart';
 
 import '../constants/shared_constants.dart';
 
 class CardDetails extends StatefulWidget {
+  const CardDetails({super.key});
+
   @override
   _CardDetailsState createState() => _CardDetailsState();
 }
@@ -42,7 +42,7 @@ class _CardDetailsState extends State<CardDetails> {
                       color: AppColors.gray6,
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back_ios_new,
                     ),
                   ),
@@ -52,7 +52,7 @@ class _CardDetailsState extends State<CardDetails> {
             const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               'My Card',
               style: TextStyle(
                   fontSize: AppFontSizes.textSizeLarge,
@@ -62,7 +62,7 @@ class _CardDetailsState extends State<CardDetails> {
               height: 30,
             ),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Image.asset(
                   'assets/images/card.png',
@@ -71,12 +71,12 @@ class _CardDetailsState extends State<CardDetails> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(60),
+              padding: const EdgeInsets.all(60),
               child: Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Name',
                       style: TextStyle(
@@ -94,7 +94,7 @@ class _CardDetailsState extends State<CardDetails> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Bank',
                       style: TextStyle(
@@ -112,7 +112,7 @@ class _CardDetailsState extends State<CardDetails> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Account',
                       style: TextStyle(
@@ -130,7 +130,7 @@ class _CardDetailsState extends State<CardDetails> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Status',
                       style: TextStyle(
@@ -148,7 +148,7 @@ class _CardDetailsState extends State<CardDetails> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Expiry',
                       style: TextStyle(

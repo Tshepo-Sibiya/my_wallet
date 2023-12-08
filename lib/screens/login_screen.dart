@@ -6,6 +6,8 @@ import '../shared_widgets/textfield.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Login extends StatefulWidget {
+  const Login({super.key});
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -88,7 +90,9 @@ class _LoginState extends State<Login> {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: Login(),
-  ));
+  runApp(
+    const MaterialApp(
+      home: Login(),
+    ),
+  );
 }

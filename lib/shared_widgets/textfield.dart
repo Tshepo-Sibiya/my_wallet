@@ -21,22 +21,23 @@ class TextFieldWithIcon extends StatelessWidget {
     return TextField(
       obscureText: isPassword,
       decoration: InputDecoration(
-          filled: true,
-          hintText: hintText,
-          prefixIcon: Icon(
-            icon,
-            color: AppColors.darkPurple,
-          ),
-          suffixIcon: Icon(
-            sufixIcon,
-            color: AppColors.gray3,
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius:
-                BorderRadius.circular(10.0), // Set the border radius here
-          ),
-          fillColor: const Color(0xFFF2F2F2)),
+        filled: true,
+        hintText: hintText,
+        prefixIcon: Icon(
+          icon,
+          color: AppColors.purple,
+        ),
+        suffixIcon: Icon(
+          sufixIcon,
+          color: AppColors.gray3,
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius:
+              BorderRadius.circular(10.0), // Set the border radius here
+        ),
+        fillColor: const Color(0xFFF2F2F2),
+      ),
     );
   }
 }

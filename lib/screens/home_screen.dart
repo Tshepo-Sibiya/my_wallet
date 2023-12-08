@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     loadJsonData();
-    randomDouble = random.nextDouble() * (1000 - 50) + 50;
+    randomDouble = random.nextDouble() * (1000000.00 - 5.00) + 5.00;
   }
 
   Future<void> loadJsonData() async {

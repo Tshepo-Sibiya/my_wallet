@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_wallet/models/transaction_model.dart';
 import 'package:my_wallet/screens/inbox_screen.dart';
+import 'package:my_wallet/screens/profile_screen.dart';
 
 import '../constants/shared_constants.dart';
 import '../utils/formaters.dart';
+import 'card_details_screen.dart';
 import 'login_screen.dart';
 import 'dart:convert';
 
@@ -25,15 +27,11 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> loadJsonData() async {
-    // Replace 'assets/data.json' with the path to your JSON file
     String jsonString = await DefaultAssetBundle.of(context)
         .loadString('assets/mock_data/transactions.json');
-
-    // Decode the JSON string into a list of objects
     Map<String, dynamic> data = jsonDecode(jsonString);
     List<dynamic> jsonList = data['transaction'];
     print(jsonList);
-    // Convert each JSON object to a MyObject and add it to the list
     List<Transaction> tempList =
         jsonList.map((item) => Transaction.fromJson(item)).toList();
 
@@ -77,34 +75,40 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Login()),
-                      );
-                    },
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/images/profile.png',
-                        fit: BoxFit.cover,
-                        width: 70.0,
-                        height: 70.0,
-                      ),
-                    )),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Profile()),
+                    );
+                  },
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/profile.png',
+                      fit: BoxFit.cover,
+                      width: 70.0,
+                      height: 70.0,
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
               height: 40,
             ),
-            // Center(
-            //   child: Image.asset('assets/images/InfoSection.png'),
-            // ),
-            Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                  'assets/images/InfoSection.png',
-                  fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CardDetails()),
+                );
+              },
+              child: Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    'assets/images/balance_card.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -115,26 +119,11 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Column(
-                //   children: [
-                //     IconButton(
-                //       color: AppColors.purple,
-                //       onPressed: () {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(builder: (context) => Login()),
-                //         );
-                //       },
-                //       icon: const Icon(Icons.person_outlined),
-                //     ),
-                //     Text('Profile')
-                //   ],
-                // ),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Login()),
+                      MaterialPageRoute(builder: (context) => const Profile()),
                     );
                   },
                   child: Column(
@@ -203,7 +192,6 @@ class _HomeState extends State<Home> {
                       leading: ClipOval(
                         child: Image.network(
                           transactions[index].transactionImageUrl ?? '',
-                          // You can customize the width, height, fit, etc.
                           width: 50.0,
                           height: 50.0,
                           fit: BoxFit.cover,
@@ -217,7 +205,6 @@ class _HomeState extends State<Home> {
                         style: const TextStyle(
                             color: Color.fromRGBO(106, 13, 173, 1)),
                       ),
-                      // You can customize the ListTile as needed
                     );
                   },
                 );

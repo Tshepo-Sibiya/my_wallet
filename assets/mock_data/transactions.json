@@ -9,7 +9,7 @@
         },
         {
             "transactionId": "200",
-            "name": "PayPal",
+            "name": "Paypal",
             "description": "External payments",
             "amount": 800.78,
             "transactionImageUrl": "https://cdn-icons-png.flaticon.com/512/174/174861.png"

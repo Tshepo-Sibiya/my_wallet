@@ -56,9 +56,9 @@ class _ProfileState extends State<Profile> {
             const Text(
               'Profile',
               style: TextStyle(
-                fontSize: AppFontSizes.textSizeMedium,
-                color: AppColors.darkPurple,
-              ),
+                  fontSize: AppFontSizes.textSizeMedium,
+                  color: AppColors.darkPurple,
+                  fontWeight: FontWeight.w500),
             ),
             const SizedBox(
               height: 40,
@@ -67,8 +67,8 @@ class _ProfileState extends State<Profile> {
               child: Image.asset(
                 'assets/images/profile.png',
                 fit: BoxFit.cover,
-                width: 70.0,
-                height: 70.0,
+                width: 72.0,
+                height: 72.0,
               ),
             ),
             const SizedBox(
@@ -79,7 +79,7 @@ class _ProfileState extends State<Profile> {
               style: TextStyle(
                 fontSize: AppFontSizes.textSizeMedium,
                 color: AppColors.darkPurple,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(
@@ -123,7 +123,7 @@ class _ProfileState extends State<Profile> {
                       style: TextStyle(
                         fontSize: AppFontSizes.textSizeMedium,
                         color: AppColors.purple,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],

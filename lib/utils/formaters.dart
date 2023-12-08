@@ -7,3 +7,8 @@ String formatCurrency(double amount) {
   );
   return currencyFormat.format(amount);
 }
+
+  String formatDate(DateTime dateTime) {
+    final formattedDate = DateFormat('d MMMM y, h.mm a').format(dateTime);
+    return formattedDate;
+  }

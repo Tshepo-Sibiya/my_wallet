@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_wallet/models/message_model.dart';
 
 import '../constants/shared_constants.dart';
+import '../utils/formaters.dart';
 
 class Inbox extends StatefulWidget {
   const Inbox({super.key});
@@ -37,6 +38,7 @@ class _InboxState extends State<Inbox> {
 
   @override
   Widget build(BuildContext context) {
+    messages.sort((a, b) => b.dateTime!.compareTo(a.dateTime ?? ''));
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.screenPadding),
@@ -72,9 +74,9 @@ class _InboxState extends State<Inbox> {
             const Text(
               'Inbox',
               style: TextStyle(
-                fontSize: AppFontSizes.textSizeMedium,
-                color: AppColors.darkPurple,
-              ),
+                  fontSize: AppFontSizes.textSizeMedium,
+                  color: AppColors.darkPurple,
+                  fontWeight: FontWeight.w500),
             ),
             const SizedBox(
               height: 10,
@@ -93,10 +95,13 @@ class _InboxState extends State<Inbox> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              messages[index].dateTime ?? '',
+                              formatDate(
+                                DateTime.parse(messages[index].dateTime ?? ''),
+                              ),
                               style: const TextStyle(
-                                  fontSize: AppFontSizes.textSizeXSmall,
-                                  color: AppColors.gray3),
+                                fontSize: 11,
+                                color: AppColors.gray3,
+                              ),
                             ),
                             const SizedBox(
                               height: 5,
@@ -104,7 +109,8 @@ class _InboxState extends State<Inbox> {
                             Text(
                               messages[index].message ?? '',
                               style: const TextStyle(
-                                fontSize: AppFontSizes.textSizeSmall,
+                                fontSize: AppFontSizes.textSizeXSmall,
+                                color: AppColors.galap,
                               ),
                             ),
                           ],

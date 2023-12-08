@@ -55,8 +55,9 @@ class _CardDetailsState extends State<CardDetails> {
             const Text(
               'My Card',
               style: TextStyle(
-                  fontSize: AppFontSizes.textSizeLarge,
-                  fontWeight: FontWeight.bold),
+                  fontSize: AppFontSizes.textSizeXLarge,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.gray1),
             ),
             const SizedBox(
               height: 30,
@@ -80,12 +81,12 @@ class _CardDetailsState extends State<CardDetails> {
                     Text(
                       'Name',
                       style: TextStyle(
-                        color: AppColors.gray3,
-                      ),
+                          color: AppColors.gray4,
+                          fontSize: AppFontSizes.textSizeSmall),
                     ),
                     Text(
                       'Mr Mom Money',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -98,12 +99,13 @@ class _CardDetailsState extends State<CardDetails> {
                     Text(
                       'Bank',
                       style: TextStyle(
-                        color: AppColors.gray3,
+                        color: AppColors.gray4,
+                        fontSize: AppFontSizes.textSizeSmall,
                       ),
                     ),
                     Text(
                       'Momentum Money',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -116,12 +118,12 @@ class _CardDetailsState extends State<CardDetails> {
                     Text(
                       'Account',
                       style: TextStyle(
-                        color: AppColors.gray3,
-                      ),
+                          color: AppColors.gray4,
+                          fontSize: AppFontSizes.textSizeSmall),
                     ),
                     Text(
                       '*** *** *** 7000',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -134,12 +136,12 @@ class _CardDetailsState extends State<CardDetails> {
                     Text(
                       'Status',
                       style: TextStyle(
-                        color: AppColors.gray3,
-                      ),
+                          color: AppColors.gray4,
+                          fontSize: AppFontSizes.textSizeSmall),
                     ),
                     Text(
                       'Active',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
@@ -152,12 +154,12 @@ class _CardDetailsState extends State<CardDetails> {
                     Text(
                       'Expiry',
                       style: TextStyle(
-                        color: AppColors.gray3,
-                      ),
+                          color: AppColors.gray4,
+                          fontSize: AppFontSizes.textSizeSmall),
                     ),
                     Text(
                       '04/2025',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),

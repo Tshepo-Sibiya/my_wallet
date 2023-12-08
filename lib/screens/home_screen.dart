@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:my_wallet/models/message_model.dart';
 import 'package:my_wallet/models/transaction_model.dart';
 import 'package:my_wallet/screens/inbox_screen.dart';
 import 'package:my_wallet/screens/profile_screen.dart';
@@ -66,8 +67,8 @@ class _HomeState extends State<Home> {
                       'Wallet',
                       style: TextStyle(
                         color: AppColors.darkPurple,
-                        fontSize: AppFontSizes.textSizeMedium,
-                        fontWeight: FontWeight.bold,
+                        fontSize: AppFontSizes.textSizeXLarge,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(
@@ -75,6 +76,11 @@ class _HomeState extends State<Home> {
                     ),
                     Text(
                       'Active',
+                      style: TextStyle(
+                        color: AppColors.gray3,
+                        fontSize: AppFontSizes.textSizeSmall,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -115,12 +121,14 @@ class _HomeState extends State<Home> {
                     color: AppColors.darkPurple,
                   ),
                   Positioned(
-                    top: 20.0,
-                    left: 20.0,
+                    top: 50.0,
+                    left: 30.0,
+                    bottom: 20.0,
+                    right: 20.0,
                     child: Padding(
-                      padding: const EdgeInsets.all(30),
+                      padding: const EdgeInsets.all(0),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -129,7 +137,7 @@ class _HomeState extends State<Home> {
                                 'Balance',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12.0,
+                                  fontSize: AppFontSizes.textSizeSmall,
                                 ),
                               ),
                               const SizedBox(
@@ -138,26 +146,36 @@ class _HomeState extends State<Home> {
                               Text(
                                 formatCurrency(randomDouble),
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                    fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                  fontSize: AppFontSizes.textSizeXLarge,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               const SizedBox(
-                                height: 60,
+                                height: 40,
                               ),
                               const Text(
                                 'Linked to card',
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12.0,
+                                  color: AppColors.gray4,
+                                  fontSize: AppFontSizes.textSizeSmall,
                                 ),
                               ),
                             ],
                           ),
-                          // const Icon(
-                          //   color: Colors.white,
-                          //   Icons.arrow_forward_ios,
-                          // ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                color: AppColors.purple,
+                                Icons.arrow_forward_ios,
+                                size: 40,
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -206,7 +224,10 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Profile')
+                      Text(
+                        'Profile',
+                        style: TextStyle(fontSize: 13, color: AppColors.gray2),
+                      )
                     ],
                   ),
                 ),
@@ -229,7 +250,13 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         height: 10,
                       ),
-                      Text('Inbox')
+                      Text(
+                        'Inbox',
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: AppColors.gray2,
+                        ),
+                      ),
                     ],
                   ),
                 )
@@ -241,7 +268,7 @@ class _HomeState extends State<Home> {
             const Text(
               'Recent Transactions',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w500,
                 fontSize: AppFontSizes.textSizeMedium,
                 color: AppColors.darkPurple,
               ),
@@ -257,14 +284,21 @@ class _HomeState extends State<Home> {
                     return ListTile(
                       title: Text(
                         transactions[index].name ?? '',
-                        style: const TextStyle(color: AppColors.darkPurple),
+                        style: const TextStyle(
+                          color: AppColors.darkPurple,
+                          fontSize: AppFontSizes.textSizeSmall,
+                        ),
                       ),
-                      subtitle: Text(transactions[index].description ?? ''),
+                      subtitle: Text(transactions[index].description ?? '',
+                          style: const TextStyle(
+                            color: AppColors.gray3,
+                            fontSize: AppFontSizes.textSizeXSmall,
+                          )),
                       leading: ClipOval(
                         child: Image.network(
                           transactions[index].transactionImageUrl ?? '',
-                          width: 50.0,
-                          height: 50.0,
+                          width: 44.0,
+                          height: 44.0,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
                             return const Icon(Icons.image);
@@ -274,7 +308,9 @@ class _HomeState extends State<Home> {
                       trailing: Text(
                         formatCurrency(transactions[index].amount ?? 0),
                         style: const TextStyle(
-                            color: Color.fromRGBO(106, 13, 173, 1)),
+                          color: AppColors.darkPurple,
+                          fontSize: AppFontSizes.textSizeSmall,
+                        ),
                       ),
                     );
                   },

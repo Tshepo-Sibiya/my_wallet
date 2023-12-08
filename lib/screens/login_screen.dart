@@ -37,8 +37,8 @@ class _LoginState extends State<Login> {
             const Text(
               'Welcome back!',
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: AppFontSizes.textSizeLarge,
+                fontWeight: FontWeight.w600,
+                fontSize: AppFontSizes.textSizeXLarge,
                 color: AppColors.darkPurple,
               ),
             ),
@@ -65,24 +65,28 @@ class _LoginState extends State<Login> {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(100.0),
-        child: ElevatedButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(10.0), // Set the border radius here
+        child: SizedBox(
+          height: 63,
+          width: 193,
+          child: ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(15.0), // Set the border radius here
+                ),
               ),
+              backgroundColor: MaterialStateProperty.all(AppColors.darkPurple),
             ),
-            backgroundColor: MaterialStateProperty.all(AppColors.darkPurple),
+            onPressed: () {
+              // Navigate to ScreenB when the button is pressed
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Home()),
+              );
+            },
+            child: const Text('Login'),
           ),
-          onPressed: () {
-            // Navigate to ScreenB when the button is pressed
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Home()),
-            );
-          },
-          child: const Text('Login'),
         ),
       ),
     );

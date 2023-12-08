@@ -5,6 +5,7 @@ import 'package:my_wallet/models/message_model.dart';
 import 'package:my_wallet/models/transaction_model.dart';
 import 'package:my_wallet/screens/inbox_screen.dart';
 import 'package:my_wallet/screens/profile_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/shared_constants.dart';
 import '../utils/formaters.dart';

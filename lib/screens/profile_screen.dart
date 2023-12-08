@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_wallet/models/message_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/shared_constants.dart';
 import 'login_screen.dart';
@@ -13,14 +14,47 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   List<Message> messages = [];
+  bool isLoading = true;
+  String? _username;
 
   @override
   void initState() {
+    loadJsonData();
     super.initState();
+  }
+
+  Future<void> loadJsonData() async {
+    _username = await fetchData("username");
+    if (_username != '' || _username != null) {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  Future<String?> fetchData(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key) ?? "Anonymous";
   }
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading == true) {
+      return Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(
+                height: 50,
+              ),
+              Text('Loading'),
+            ],
+          ),
+        ),
+      );
+    }
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.screenPadding),
@@ -72,11 +106,11 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
-            const Text(
-              'Mr Mom Money',
-              style: TextStyle(
+            Text(
+              _username ?? '',
+              style: const TextStyle(
                 fontSize: AppFontSizes.textSizeMedium,
                 color: AppColors.darkPurple,
                 fontWeight: FontWeight.w500,

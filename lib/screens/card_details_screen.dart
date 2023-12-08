@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_wallet/models/message_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/shared_constants.dart';
 
@@ -12,10 +13,27 @@ class CardDetails extends StatefulWidget {
 
 class _CardDetailsState extends State<CardDetails> {
   List<Message> messages = [];
+  bool isLoading = true;
+  String? _username;
 
   @override
   void initState() {
+    loadJsonData();
     super.initState();
+  }
+
+  Future<void> loadJsonData() async {
+    _username = await fetchData("username");
+    if (_username != '' || _username != null) {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  Future<String?> fetchData(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key) ?? "Anonymous";
   }
 
   @override
@@ -77,16 +95,16 @@ class _CardDetailsState extends State<CardDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
+                  children: [
+                    const Text(
                       'Name',
                       style: TextStyle(
                           color: AppColors.gray4,
                           fontSize: AppFontSizes.textSizeSmall),
                     ),
                     Text(
-                      'Mr Mom Money',
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                      _username ?? '',
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),
